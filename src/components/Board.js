@@ -4,7 +4,10 @@ import '../App.css';
 
 function Board({ tickets, users, grouping, sorting }) {
   const groupTickets = () => {
-    const grouped = {};
+    const grouped = {
+      'Done': [],      
+      'Canceled': [], 
+    };
     
     tickets.forEach(ticket => {
       let key;
@@ -27,10 +30,15 @@ function Board({ tickets, users, grouping, sorting }) {
   };
 
   const groupedTickets = groupTickets();
+  const regularColumns = Object.entries(groupedTickets).filter(([key]) => key !== 'Done' && key !== 'Canceled');
+  const specialColumns = Object.entries(groupedTickets).filter(([key]) => key === 'Done' || key === 'Canceled');
 
   return (
     <div className="board">
-      {Object.entries(groupedTickets).map(([key, tickets]) => (
+      {regularColumns.map(([key, tickets]) => (
+        <Column key={key} title={key} tickets={tickets} users={users} />
+      ))}
+      {specialColumns.map(([key, tickets]) => (
         <Column key={key} title={key} tickets={tickets} users={users} />
       ))}
     </div>
