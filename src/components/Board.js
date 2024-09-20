@@ -38,9 +38,10 @@ function Board({ tickets, users, grouping, sorting }) {
       {regularColumns.map(([key, tickets]) => (
         <Column key={key} title={key} tickets={tickets} users={users} />
       ))}
-      {specialColumns.map(([key, tickets]) => (
+      {(grouping==='status')?specialColumns.map(([key, tickets]) => (
         <Column key={key} title={key} tickets={tickets} users={users} />
-      ))}
+      )):""}
+      
     </div>
   );
 }
