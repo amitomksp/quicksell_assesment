@@ -11,10 +11,12 @@ function Card({ ticket, user }) {
       <h3 className="card-title">{ticket.title}</h3>
       <div className="card-footer">
         <span className="tag">
-          {(ticket.priority>=4)?<img src="/photo/Img - High Priority.svg" alt="Add" className="action-icon" />:""}
-          {(ticket.priority>1 &&ticket.priority<=3)?<img src="/photo/Img - Medium Priority.svg" alt="Add" className="action-icon" />:""}
+          {(ticket.priority===4)?<img src="/photo/SVG - Urgent Priority grey.svg" alt="Add" className="action-icon" />:""}
+          {(ticket.priority===3)?<img src="/photo/Img - High Priority.svg" alt="Add" className="action-icon" />:""}
+          {(ticket.priority===2)?<img src="/photo/Img - Medium Priority.svg" alt="Add" className="action-icon" />:""}
           {(ticket.priority===1)?<img src="/photo/Img - Low Priority.svg" alt="Add" className="action-icon" />:""}
           {(ticket.priority===0)?<img src="/photo/nopriority.svg" alt="Add" className="action-icon" />:""}
+         
         
         {ticket.tag}</span>
       </div>

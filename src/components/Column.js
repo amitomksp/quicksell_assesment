@@ -14,16 +14,43 @@ function Column({ title, tickets, users }) {
           return 'Done.svg';
         case 'canceled':
           return 'Cancelled.svg';
-        default: 
+        case 'backlog':
           return 'Backlog.svg';
+        case '0':
+          return 'nopriority.svg';
+        case '1':
+          return 'Img - Low Priority.svg';
+        case '2':
+          return 'Img - Medium Priority.svg';
+        case '3':
+          return 'Img - High Priority.svg';
+        case '4':
+          return 'SVG - Urgent Priority colour.svg';
+        case 'anoop sharma':
+          return <span className="user-avatar">{title[0]}</span>;
+        case 'yogesh':
+          return <span className="user-avatar">{title[0]}</span>;
+        case 'shankar kumar':
+          return <span className="user-avatar">{title[0]}</span>;
+        case 'ramesh':
+          return <span className="user-avatar">{title[0]}</span>;
+        case 'suresh':
+          return <span className="user-avatar">{title[0]}</span>;
+        default: 
+          return 'Cancelled.svg';
       }
     };
+    const icon = getStatusIcon();
   
     return (
       <div className="column">
         <div className="column-header">
           <div className="column-header-left">
-            <img src={`/photo/${getStatusIcon()}`} alt={`${title} icon`} className="status-icon" />
+          {typeof icon === 'string' ? (
+            <img src={`/photo/${icon}`} alt={`${title} icon`} className="status-icon" />
+          ) : (
+            icon
+          )}
             <h2>{title}</h2>
             <span className="ticket-count">{tickets.length}</span>
           </div>
