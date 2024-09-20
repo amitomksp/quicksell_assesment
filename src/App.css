@@ -263,3 +263,70 @@ select:focus {
 .card:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .display-button {
+    font-size: 16px;
+  }
+
+  .icon-before,
+  .icon-after {
+    width: 12px;
+    height: 12px;
+  }
+
+  .display-form {
+    width: 100%;
+  }
+
+  select {
+    font-size: 14px;
+    padding: 4px;
+  }
+
+  .option-line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 5px;
+  }
+
+  .display-button {
+    font-size: 14px;
+  }
+
+  .icon-before,
+  .icon-after {
+    width: 10px;
+    height: 10px;
+  }
+
+  .display-form {
+    width: 100%;
+  }
+
+  select {
+    font-size: 12px;
+    padding: 3px;
+  }
+
+  .option-line {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  label {
+    margin-bottom: 5px;
+  }
+}
