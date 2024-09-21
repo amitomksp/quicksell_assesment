@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
 import '../App.css';
 
-
+const urgent=["No priority","Low","Medium","High","Urgent"];
 function Column({ title, tickets, users }) {
     const getStatusIcon = () => {
       switch (title.toLowerCase()) {
@@ -51,7 +51,8 @@ function Column({ title, tickets, users }) {
           ) : (
             icon
           )}
-            <h2>{title}</h2>
+          {(title==="0" || title==="1" ||title==="2" || title==="3" || title==="4") ?<h2>{urgent[title]}</h2>:<h2>{title}</h2>}
+            
             <span className="ticket-count">{tickets.length}</span>
           </div>
           <div className="column-header-right">
